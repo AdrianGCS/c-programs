@@ -22,7 +22,7 @@ int main(){
     printf("%f  \t(%lu bytes)\n", realillo, sizeof(float));
     printf("%8.2lf \t(%lu bytes)\n", real, sizeof(double)); // long float
 
-
+    sys
     printf("%c%c%c", 49, 50, 10);
     printf("%c%c%c", 0x31, 0x32, 0xA);
     printf("%c%c%c", '1', '2', '\n');
