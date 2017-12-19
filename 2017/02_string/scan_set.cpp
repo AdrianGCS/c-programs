@@ -19,7 +19,7 @@ int main()
 
     scanf(" %[^a-f]", Hexadecimal);
     scanf(" %[^\n]", nombre);
-    gets(nombre, 16, stdin) ;
+    fgets(nombre, 16, stdin) ;
 
     scanf ("%i/%i/%*i" &dia, &mes,)
     return EXIT_SUCCESS;
