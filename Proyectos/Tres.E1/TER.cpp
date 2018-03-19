@@ -7,51 +7,62 @@
 //#define Num2 2
 
 int main(){
-    int lugar[total][total];
+    int lugar[total][total]=
+    {
+        {0,0,0},
+        {0,0,0},
+        {0,0,0}
+    };
     int jugador = 0;
     int temporal = 0;
     int contador=0;
-    int error=1;
+    int error=0;
     int ganar=0;
-    int comprobar[total];
+    int comprobar[total]=
+    {0,0,0};
 
-    bzero(lugar, sizeof(lugar));
-    bzero(comprobar, sizeof(comprobar));
-    while(ganar>0){
+    do{
         //queremos repita todo el programa hasta que tenga un ganador o tablas
-        while(error=0){
-            error=0;
+        do{
             //si error = 1 vuelve a preguntar
             if(jugador>=1){
                 //La idea es que la primera vez que se inicie el programa no pregunte el numero
                 printf("dame un numero \n");
                 scanf("%i", &temporal);
                 //temporal guarda la posicion donde va a jugar
-                if(temporal>=0 or temporal<=10)
+                if(temporal<=0  temporal<=10)
                     error=1;
                 if(error=0 and temporal>0 and temporal<=3)
-                    if(lugar[0][temporal-1]==0)
+                    if(lugar[0][temporal-1]=0){
                         lugar[0][temporal-1]=jugador;
+                        error=0;
+                    }
                 //insertamos el valor del jugador(1 o 2) en el lugar indicado por el jugador
                     else
                         error=1;
                 else
                     if(error=0 and temporal>=4 and temporal<=6)
-                        if(lugar[1][temporal-4]==0)
+                        if(lugar[1][temporal-4]=0){
                             lugar[1][temporal-4]=jugador;
+                            error=0;
+                        }
                         else
                             error=1;
                     else
                         if(error=0 and temporal>=6 and temporal<=9)
-                            if(lugar[2][temporal-6]==0)
+                            if(lugar[2][temporal-6]==0){
                                 lugar[2][temporal-7]=jugador;
+                                error=0;
+                            }
                             else
                                 error=1;
             }
-        }
+            if(error=0)
+                printf("Hay un error \n");
+        }while(error==1);
 
 
-
+        jugador++;
         //Este apartado se encarga de dibujar la matriz es decir "El tres en raya"
         for(int y = 0; y < total;y++ ){
             //Este apartado dibuja 2 de las 3 lineas
@@ -71,9 +82,11 @@ int main(){
                         else
                             if(lugar[y][z] == 2)
                                 printf ("O");
-                            else
+                            else{
                                 contador++;
-                        printf("%i", contador);
+                                printf("%i", contador);
+                            }
+
                     }
                     else
                         printf(" ");
@@ -93,15 +106,24 @@ int main(){
 
         }
         for(int x = 0;x<total;x++){
-            for (y= 0 y<total;y++)
+            for (int y = 0 ;y<total;y++)
                 comprobar[y]=lugar[x][y];
-            if(comprobar[0]=1 or 2 and comprobar[0]=comprobar[1] and comprobar[0]=comprobar[2])
-                ganar=comprobar[0];
+            if(comprobar[0]=1 or 2 )
+                if(comprobar[0]=comprobar[1] and comprobar[2])
+                    ganar=comprobar[0];
         }
         if(ganar>=0)
+            if(contador=0)
+                ganar=3;
+        contador=0;
+        if(jugador=3)
+            jugador=1;
 
-        }
+    }while(ganar<=0);
+    if(ganar<3)
+        printf("El ganador es el jugador %i", ganar);
+    else
+        printf("Terminamos en tablas");
 
-
-        return EXIT_SUCCESS;
-    }
+    return EXIT_SUCCESS;
+}
