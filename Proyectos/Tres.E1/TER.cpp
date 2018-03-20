@@ -4,7 +4,7 @@
 
 #define Num 4
 #define total 3
-//#define Num2 2
+#define Num2 2
 
 int main(){
     int lugar[total][total]=
@@ -30,10 +30,10 @@ int main(){
                 printf("dame un numero \n");
                 scanf("%i", &temporal);
                 //temporal guarda la posicion donde va a jugar
-                if(temporal<=0  temporal<=10)
+                if(temporal<=0 && temporal<=10)
                     error=1;
-                if(error=0 and temporal>0 and temporal<=3)
-                    if(lugar[0][temporal-1]=0){
+                if(temporal<=3)
+                    if(lugar[0][temporal-1]==0){
                         lugar[0][temporal-1]=jugador;
                         error=0;
                     }
@@ -41,28 +41,25 @@ int main(){
                     else
                         error=1;
                 else
-                    if(error=0 and temporal>=4 and temporal<=6)
-                        if(lugar[1][temporal-4]=0){
+                    if(error==0 && temporal<=6)
+                        if(lugar[1][temporal-4]==0){
                             lugar[1][temporal-4]=jugador;
                             error=0;
                         }
                         else
                             error=1;
                     else
-                        if(error=0 and temporal>=6 and temporal<=9)
-                            if(lugar[2][temporal-6]==0){
+                        if(error==0 && temporal<=9)
+                            if(lugar[2][temporal-7]==0){
                                 lugar[2][temporal-7]=jugador;
                                 error=0;
                             }
                             else
                                 error=1;
             }
-            if(error=0)
+            if(error!=0)
                 printf("Hay un error \n");
         }while(error==1);
-
-
-        jugador++;
         //Este apartado se encarga de dibujar la matriz es decir "El tres en raya"
         for(int y = 0; y < total;y++ ){
             //Este apartado dibuja 2 de las 3 lineas
@@ -86,7 +83,6 @@ int main(){
                                 contador++;
                                 printf("%i", contador);
                             }
-
                     }
                     else
                         printf(" ");
@@ -101,23 +97,30 @@ int main(){
                     for(int x = 0; x < total; x++)
                         printf("*");
                 printf("*");
-
                 printf("\n");}
+        }
+        //Este apartado se encarga de comprobar como va
+            for(int x = 0;x<total;x++){
+                for (int y = 0 ;y<total;y++)
+                    if(lugar[x][y]==1)
+                        comprobar[y]=1;
+                    else
+                        if(lugar[x][y]==Num2)
+                            comprobar[y]=2;
+                        else
+                            comprobar[y]=0;
+                if(comprobar[0]==1 or 2 )
+                    if(comprobar[0]==comprobar[1] and comprobar[0]!=0)
+                        if(comprobar[0]==comprobar[2])
+                            ganar=comprobar[0];}
 
-        }
-        for(int x = 0;x<total;x++){
-            for (int y = 0 ;y<total;y++)
-                comprobar[y]=lugar[x][y];
-            if(comprobar[0]=1 or 2 )
-                if(comprobar[0]=comprobar[1] and comprobar[2])
-                    ganar=comprobar[0];
-        }
-        if(ganar>=0)
-            if(contador=0)
+        if(ganar==0)
+            if(contador==0)
                 ganar=3;
         contador=0;
-        if(jugador=3)
-            jugador=1;
+        jugador+=1;
+        if(jugador==3)
+            jugador=1;;
 
     }while(ganar<=0);
     if(ganar<3)
