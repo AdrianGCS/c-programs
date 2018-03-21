@@ -30,9 +30,9 @@ int main(){
                 printf("dame un numero \n");
                 scanf("%i", &temporal);
                 //temporal guarda la posicion donde va a jugar
-                if(temporal<=0 && temporal<=10)
+                if(temporal<=0 or temporal>=10)
                     error=1;
-                if(temporal<=3)
+                if(temporal<=3 && error==0)
                     if(lugar[0][temporal-1]==0){
                         lugar[0][temporal-1]=jugador;
                         error=0;
@@ -41,7 +41,7 @@ int main(){
                     else
                         error=1;
                 else
-                    if(error==0 && temporal<=6)
+                    if(error==0 or temporal<=6)
                         if(lugar[1][temporal-4]==0){
                             lugar[1][temporal-4]=jugador;
                             error=0;
@@ -81,8 +81,7 @@ int main(){
                                 printf ("O");
                             else{
                                 contador++;
-                                printf("%i", contador);
-                            }
+                                printf("%i", contador);}
                     }
                     else
                         printf(" ");
@@ -99,8 +98,9 @@ int main(){
                 printf("*");
                 printf("\n");}
         }
-        //Este apartado se encarga de comprobar como va
-            for(int x = 0;x<total;x++){
+        //Este apartado se encarga de comprobar como van
+     // for(int z=0; z<Num2;<++)
+        for(int x = 0;x<total;x++){
                 for (int y = 0 ;y<total;y++)
                     if(lugar[x][y]==1)
                         comprobar[y]=1;
@@ -113,6 +113,7 @@ int main(){
                     if(comprobar[0]==comprobar[1] and comprobar[0]!=0)
                         if(comprobar[0]==comprobar[2])
                             ganar=comprobar[0];}
+
 
         if(ganar==0)
             if(contador==0)
