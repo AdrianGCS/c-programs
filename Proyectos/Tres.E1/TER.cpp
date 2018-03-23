@@ -20,6 +20,8 @@ int main(){
     int ganar=0;
     int comprobar[total]=
     {0,0,0};
+    int valor1 ;
+    int valor2;
 
     do{
         //queremos repita todo el programa hasta que tenga un ganador o tablas
@@ -41,7 +43,7 @@ int main(){
                     else
                         error=1;
                 else
-                    if(error==0 or temporal<=6)
+                    if(error==0 and temporal<=6)
                         if(lugar[1][temporal-4]==0){
                             lugar[1][temporal-4]=jugador;
                             error=0;
@@ -99,16 +101,26 @@ int main(){
                 printf("\n");}
         }
         //Este apartado se encarga de comprobar como van
-     // for(int z=0; z<Num2;<++)
-        for(int x = 0;x<total;x++){
-                for (int y = 0 ;y<total;y++)
-                    if(lugar[x][y]==1)
-                        comprobar[y]=1;
+     for(int z=0; z<Num2;z++)
+        for(int Horizontal = 0;Horizontal<total;Horizontal++){
+                for (int Vertical = 0 ;Vertical<total;Vertical++){
+                    if (z==0)
+                    {
+                    	valor1=Horizontal;
+                    	valor2=Vertical;
+                    }
+                    else{
+                    	valor1=Vertical;
+                    	valor2=Horizontal;
+                    }
+
+                    if(lugar[valor1][valor2]==1)
+                        comprobar[Vertical]=1;
                     else
-                        if(lugar[x][y]==Num2)
-                            comprobar[y]=2;
+                        if(lugar[valor1][valor2]==Num2)
+                            comprobar[Vertical]=2;
                         else
-                            comprobar[y]=0;
+                            comprobar[Vertical]=0;}
                 if(comprobar[0]==1 or 2 )
                     if(comprobar[0]==comprobar[1] and comprobar[0]!=0)
                         if(comprobar[0]==comprobar[2])
