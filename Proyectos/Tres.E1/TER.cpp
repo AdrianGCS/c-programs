@@ -14,7 +14,7 @@ int main(){
         {0,0,0}
     };
     int jugador = 0;
-    int temporal = 0;
+    int temporal = 0;//temporal guarda la posicion donde va a jugar
     int contador=0;
     int error=0;
     int ganar=0;
@@ -24,14 +24,15 @@ int main(){
     int valor2;
 
     do{
+
         //queremos repita todo el programa hasta que tenga un ganador o tablas
         do{
-            //si error = 1 vuelve a preguntar
-            if(jugador>=1){
+           	 if(jugador>=1){
                 //La idea es que la primera vez que se inicie el programa no pregunte el numero
                 printf("dame un numero \n");
                 scanf("%i", &temporal);
-                //temporal guarda la posicion donde va a jugar
+
+
                 if(temporal<=0 or temporal>=10)
                     error=1;
                 if(temporal<=3 && error==0)
@@ -62,7 +63,11 @@ int main(){
             if(error!=0)
                 printf("Hay un error \n");
         }while(error==1);
+
+
         //Este apartado se encarga de dibujar la matriz es decir "El tres en raya"
+
+
         for(int y = 0; y < total;y++ ){
             //Este apartado dibuja 2 de las 3 lineas
             for(int x = 0; x < Num; x++)
@@ -92,7 +97,6 @@ int main(){
                 printf("*");
                 printf("\n");
             }
-            //dibuja la línea final
             if(y == total-1){
                 for(int x = 0; x < Num; x++)
                     for(int x = 0; x < total; x++)
@@ -100,31 +104,45 @@ int main(){
                 printf("*");
                 printf("\n");}
         }
+
         //Este apartado se encarga de comprobar como van
+
+
      for(int z=0; z<Num2;z++)
-        for(int Horizontal = 0;Horizontal<total;Horizontal++){
-                for (int Vertical = 0 ;Vertical<total;Vertical++){
+        for(int Vertical = 0;Vertical<total;Vertical++){
+                for (int Horizontal = 0 ;Horizontal<total;Horizontal++){
                     if (z==0)
                     {
-                    	valor1=Horizontal;
-                    	valor2=Vertical;
-                    }
-                    else{
                     	valor1=Vertical;
                     	valor2=Horizontal;
                     }
+                    else{
+                    	valor1=Horizontal;
+                    	valor2=Vertical;
+                    }
 
                     if(lugar[valor1][valor2]==1)
-                        comprobar[Vertical]=1;
+                        comprobar[Horizontal]=1;
                     else
                         if(lugar[valor1][valor2]==Num2)
-                            comprobar[Vertical]=2;
+                            comprobar[Horizontal]=2;
                         else
-                            comprobar[Vertical]=0;}
+                            comprobar[Horizontal]=0;}
                 if(comprobar[0]==1 or 2 )
                     if(comprobar[0]==comprobar[1] and comprobar[0]!=0)
                         if(comprobar[0]==comprobar[2])
                             ganar=comprobar[0];}
+         
+
+
+         if(lugar[0][0]!=0)
+         	if (lugar[0][0] == lugar[1][1] && lugar[2][2] == lugar[0][0])
+         		ganar==lugar[0][0];
+         	else
+         		if(lugar[0][2]!=0)
+         			if(lugar[0][2] == lugar[1][1] && lugar[2][0] == lugar[0][2])
+         				ganar==lugar[0][2];
+
 
 
         if(ganar==0)
@@ -133,7 +151,8 @@ int main(){
         contador=0;
         jugador+=1;
         if(jugador==3)
-            jugador=1;;
+            jugador=1;
+        
 
     }while(ganar<=0);
     if(ganar<3)
