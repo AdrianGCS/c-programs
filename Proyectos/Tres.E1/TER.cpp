@@ -29,12 +29,20 @@ int main(){
         do{
            	 if(jugador>=1){
                 //La idea es que la primera vez que se inicie el programa no pregunte el numero
+                error=0;
                 printf("dame un numero \n");
-                scanf("%i", &temporal);
+
+                while(!scanf(" %i", &temporal))
+                {
+                	printf("Dije que metieras un numero\n");
+                	getchar();
+                }
 
 
-                if(temporal<=0 or temporal>=10)
+
+                if(temporal<=0 or temporal>=10){
                     error=1;
+                }
                 if(temporal<=3 && error==0)
                     if(lugar[0][temporal-1]==0){
                         lugar[0][temporal-1]=jugador;
@@ -152,7 +160,7 @@ int main(){
         jugador+=1;
         if(jugador==3)
             jugador=1;
-        
+
 
     }while(ganar<=0);
     if(ganar<3)
