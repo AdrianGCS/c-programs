@@ -26,7 +26,6 @@ int main(){
     int valor2;
 
     do{
-
     //queremos repita todo el programa hasta que tenga un ganador o tablas
         do{
            	 if(jugador>=1){
