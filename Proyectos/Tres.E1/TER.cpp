@@ -22,8 +22,9 @@ int main(){
     int ganar=0;
     int comprobar[total]=
     {0,0,0};
-    int valor1 ;
+    int valor1;
     int valor2;
+    int posicion=0;
 
     do{
     //queremos repita todo el programa hasta que tenga un ganador o tablas
@@ -76,7 +77,6 @@ int main(){
                 printf("Hay un error \n");
         }while(error==1);
 
-
         //Este apartado se encarga de dibujar la matriz es decir "El tres en raya"
 
 
@@ -94,13 +94,18 @@ int main(){
                     //esto metera en el espacio entre líneas 2 una X , una O o un espacio
                     if(W == 1){
                         if(lugar[y][z] == 1){
-                            printf("X");}
+                            printf("X");
+                            posicion++;
+                        }
                         else
-                            if(lugar[y][z] == 2)
+                            if(lugar[y][z] == 2){
                                 printf ("O");
+                                posicion++;
+                            }
                             else{
                                 contador++;
-                                printf("%i", contador);}
+                                posicion++;
+                                printf("%i", posicion);}
                     }
                     else
                         printf(" ");
@@ -149,19 +154,18 @@ int main(){
         	valor1=-1;
         	valor2=-1;
 
-        	if (z==0)
+        	
         	for (int Vertical = 0; Vertical < total; ++Vertical)
         	{
-        		if (z==0)
-        		{
+        		if (z==0){
         			valor1+=1;
         			valor2+=1;
         		}
         		else{
         			if (Vertical==0)
-        			{
-        			valor1=3;
-        			}
+        				{
+        				valor1=3;
+        				}
         			valor1-=1;
         			valor2+=1;
         		}
@@ -183,6 +187,7 @@ int main(){
         if(ganar==0)
             if(contador==0)
                 ganar=3;
+        posicion=0;
         contador=0;
         jugador+=1;
         if(jugador==3)
