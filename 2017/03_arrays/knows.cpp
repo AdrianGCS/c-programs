@@ -17,7 +17,7 @@ int main()
     printf("Ocupa: %Xh bytes.\n",(int) sizeof(nombre));
     printf("Ocupa: %lu bytes.\n", sizeof(nombre));
     printf("Ocupa: %lu bytes.\n", sizeof(nombre) / sizeof (int));
-    
+
     printf("%i", nombre[0]);
     printf("%i", nombre[1]);
     printf("%i", nombre[2]);
@@ -39,6 +39,6 @@ int main()
     fgets(nombre, N , stdin);
     sprintf(nom ,"Hola %s", nombre);
     printf ("%s\n",nom);
-      
+
     return EXIT_SUCCESS;
 }
