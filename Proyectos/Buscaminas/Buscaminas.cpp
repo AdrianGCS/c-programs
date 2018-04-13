@@ -43,35 +43,31 @@ void PreguntarDif(int *Dificultad){
     }while(*Dificultad==0);
 }
 
-void LEminas(int Dificultad, int Lminas){
-    int temporal;
 
-//Este apartado determina la posición de las minas,tiene en cuenta la dificultad
-    srand(time(NULL));
-    for(int W=0;W<minas/Dificultad;W++){
-      do{
-      temporal==rand() % 101;
-      for(int Z=0;Z<=W;Z++)
-          if(Lminas[Z]==temporal)
-              temporal==101;
-      if(temporal!=101)
-          Lminas[W]==temporal;
-
-      }while(temporal==101);
-
-    }
-
-}
 int main(){
 
     int Datos[N][N];
     int Lminas[minas];
     int Dificultad;
+    int temporal;
 
     bzero(Datos,sizeof(Datos));
     bzero(Lminas,sizeof(Lminas));
     PreguntarDif(&Dificultad);
-    LEminas(Dificultad,&Lminas);
+
+//Este apartado determina la posición de las minas,tiene en cuenta la dificultad
+    srand(time(NULL));
+    for(int W=0;W<minas/Dificultad;W++){
+      do{
+      temporal=rand() % 100 + 1;
+      for(int Z=0;Z<=W;Z++)
+          if(Lminas[Z]==temporal)
+              temporal=101;
+      if(temporal<101)
+          Lminas[W]=temporal;
+
+      }while(temporal==101);
+    }
     printf("%i", Dificultad);
 
     return EXIT_SUCCESS;
