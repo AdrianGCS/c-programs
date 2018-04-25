@@ -27,17 +27,17 @@ int main(){
     int posicion=0;
 
     do{
-    //queremos repita todo el programa hasta que tenga un ganador o tablas
+        //queremos repita todo el programa hasta que tenga un ganador o tablas
         do{
-           	 if(jugador>=1){
+            if(jugador>=1){
                 //La idea es que la primera vez que se inicie el programa no pregunte el numero
                 error=0;
                 printf("dame un numero \n");
 
                 while(!scanf(" %i", &temporal))
                 {
-                	printf("Dije que metieras un numero\n");
-                	getchar();
+                    printf("Dije que metieras un numero\n");
+                    getchar();
                 }
 
 
@@ -51,7 +51,7 @@ int main(){
                         lugar[0][temporal-1]=jugador;
                         error=0;
                     }
-         		//insertamos el valor del jugador(1 o 2) en el lugar indicado por el jugador
+                //insertamos el valor del jugador(1 o 2) en el lugar indicado por el jugador
                     else
                         error=1;
                 else
@@ -124,62 +124,62 @@ int main(){
         }
 
         //Este apartado se encarga de comprobar como van
-     for(int z=0; z<Num2;z++){
-        for(int Vertical = 0;Vertical<total;Vertical++){
+        for(int z=0; z<Num2;z++){
+            for(int Vertical = 0;Vertical<total;Vertical++){
                 for (int Horizontal = 0 ;Horizontal<total;Horizontal++){
                     if (z==0)
                     {
-                    	valor1=Vertical;
-                    	valor2=Horizontal;
+                        valor1=Vertical;
+                        valor2=Horizontal;
                     }
                     else{
-                    	valor1=Horizontal;
-                    	valor2=Vertical;
+                        valor1=Horizontal;
+                        valor2=Vertical;
                     }
 
                     if(lugar[valor1][valor2]==1)
                         comprobar[Horizontal]=1;
-                    	else
-                        	if(lugar[valor1][valor2]==Num2)
-                            	comprobar[Horizontal]=2;
-                        	else
-                            	comprobar[Horizontal]=0;}
+                    else
+                        if(lugar[valor1][valor2]==Num2)
+                            comprobar[Horizontal]=2;
+                        else
+                            comprobar[Horizontal]=0;}
                 if(comprobar[0]==1 or 2 )
                     if(comprobar[0]==comprobar[1] and comprobar[0]!=0)
                         if(comprobar[0]==comprobar[2])
                             ganar=comprobar[0];
-                    }
-                }
+            }
+        }
         for (int z = 0; z < Num2; ++z)
         {
-        	valor1=-1;
-        	valor2=-1;
+            valor1=-1;
+            valor2=-1;
 
-        	for (int Vertical = 0; Vertical < total; ++Vertical)
-        	{
-        		if (z==0){
-        			valor1+=1;
-        			valor2+=1;
-        		}
-        		else{
-        			if (Vertical==0)
-        				{
-        				valor1=3;
-        				}
-        			valor1-=1;
-        			valor2+=1;
-        		}
+            for (int Vertical = 0; Vertical < total; ++Vertical)
+            {
+                if (z==0){
+                    valor1+=1;
+                    valor2+=1;
+                }
+                else{
+                    if (Vertical==0)
+                    {
+                        valor1=3;
+                    }
+                    valor1-=1;
+                    valor2+=1;
+                }
 
-        		if(lugar[valor1][valor2]==1)
-                   	comprobar[Vertical]=1;
-                	else
-                       	if(lugar[valor1][valor2]==Num2)
-                            comprobar[Vertical]=2;
-                        else
-                            comprobar[Vertical]=0;
+                if(lugar[valor1][valor2]==1)
+                    comprobar[Vertical]=1;
+                else
+                    if(lugar[valor1][valor2]==Num2)
+                        comprobar[Vertical]=2;
+                    else
+                        comprobar[Vertical]=0;
 
-        	}
-       		if(comprobar[0]==1 or 2 )
+            }
+            if(comprobar[0]==1 or 2 )
                 if(comprobar[0]==comprobar[1] and comprobar[0]!=0)
                     if(comprobar[0]==comprobar[2])
                         ganar=comprobar[0];
