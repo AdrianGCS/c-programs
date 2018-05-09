@@ -5,9 +5,15 @@
 #include <ncurses.h>
 
 #define VMAX 9
+<<<<<<< HEAD
 #define DELTA_T 0.001
 
 #define N 3
+=======
+#define DELTA_T 0.00001
+
+#define N 60
+>>>>>>> 89fa517b0cbe8368be6d6ec0b64d5c446ba4a255
 
 typedef struct {
     double x;
@@ -27,8 +33,13 @@ void iniciar(Sprite que[N]){
         que[i].pos.y = 0;
         que[i].vel.x = rand() % VMAX + 1.;
         que[i].vel.y = rand() % VMAX + 1.;
+<<<<<<< HEAD
         que[i].acc.x = 0.;
         que[i].acc.y = -9.8;
+=======
+        que[i].acc.x = -1;
+        que[i].acc.y =  - rand() % 10 + 0;
+>>>>>>> 89fa517b0cbe8368be6d6ec0b64d5c446ba4a255
     }
 }
 

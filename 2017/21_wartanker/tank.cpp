@@ -5,7 +5,11 @@
 #include <locale.h>
 #include <ncurses.h>
 
+<<<<<<< HEAD
 #define DELTA_T 0.01
+=======
+#define DELTA_T 0.00001
+>>>>>>> 89fa517b0cbe8368be6d6ec0b64d5c446ba4a255
 
 typedef struct {
     double x;
