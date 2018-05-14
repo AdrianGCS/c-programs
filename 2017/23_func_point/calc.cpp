@@ -50,19 +50,18 @@ int pop(Pila *pila) {
     return pila->data[--pila->cima];
 }
 
-double sum(double op1, double op2) { return op1 + op2; 
-}
-double res(double op1, double op2) { return op1 - op2; }
-double mul(double op1, double op2) { return op1 * op2; }
-double div(double op1, double op2) { return op1 / op2; }
+double sum(double op1, double op2) { return op1 + op2;}
+double res(double op1, double op2) { return op1 - op2;}
+double mul(double op1, double op2) { return op1 * op2;}
+double div(double op1, double op2) { return op1 / op2;}
 
 int main(){
 
     Pila op, datos;
     double op1, op2;
     char opera;
-    double s; 
-   
+    double s;
+
     Operacion catalogo[] = {
         {"suma",  &sum},
         {"resta", &res},
@@ -79,11 +78,11 @@ for(int a=0; a<10; a++){
     printf("\n");
     printf("Operando 2: ");
     scanf(" %lf", &op2);
-  
+
 
     push(op2, &datos);
     push(op1, &datos);
-    
+
 
     switch(opera) {
         case '+':
@@ -109,7 +108,7 @@ for(int a=0; a<10; a++){
             printf("+ - * /");
             break;
     }
-    
+
     pop(&op);
 }
  pop(&datos);
