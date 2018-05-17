@@ -39,9 +39,7 @@ void iniciar(Obj que[N]){
         que[i].Velocidad.X = rand() % VMAX + 1.;
         que[i].Velocidad.Y = rand() % VMAX + 1.;
 
-        que[i].Aceleracion.X = 0.;
         que[i].Aceleracion.Y = -9.8;
-        que[i].Aceleracion.X = -1;
         que[i].Aceleracion.Y =  - rand() % 10 + 0;
         if(i==0)
             que[i].puntero = &N1;
