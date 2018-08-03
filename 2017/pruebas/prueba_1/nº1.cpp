@@ -7,6 +7,7 @@ int main()
     char con1[64];
     char jugador2[32];
     char con2[64];
+    char temp[64];
     printf("Vamos a jugar a un juego , este juego solo lo pueden jugar 2 jugadores \n asi que antes de empezar vamos a determinar el nombre y contraseña de cada jugador\n");
     printf("Usuario 1 dime tu nombre \n");
     scanf(" %[^\n]", jugador1);
